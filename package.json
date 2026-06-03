@@ -1,0 +1,15 @@
+{
+  "name": "claude-training-hub",
+  "version": "1.0.0",
+  "description": "5-Day Claude Support Training Companion App",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "nodemailer": "^8.0.10",
+    "pptxgenjs": "^4.0.1"
+  }
+}
