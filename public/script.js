@@ -6,6 +6,7 @@ function escapeHtml(str) {
 
 const app = {
   user: null,
+  userToken: null,
   currentDay: null,
   currentTab: 'topics',
   quizState: null,
@@ -25,9 +26,13 @@ const app = {
       return;
     }
     const savedId = localStorage.getItem('cth_userId');
-    if (savedId) {
+    const savedToken = localStorage.getItem('cth_userToken');
+    if (savedId && savedToken) {
+      this.userToken = savedToken;
       this.loadUser(savedId);
     } else {
+      localStorage.removeItem('cth_userId');
+      localStorage.removeItem('cth_userToken');
       this.renderRegister();
     }
     window.addEventListener('popstate', () => this.handleRoute());
@@ -106,7 +111,11 @@ const app = {
         body: JSON.stringify({ name, email })
       });
       if (res.ok) {
-        this.user = await res.json();
+        const data = await res.json();
+        this.userToken = data.sessionToken;
+        localStorage.setItem('cth_userToken', data.sessionToken);
+        const { sessionToken, ...user } = data;
+        this.user = user;
         localStorage.setItem('cth_userId', this.user.id);
         document.getElementById('headerNav').style.display = 'flex';
         document.getElementById('userBadge').textContent = this.user.name;
@@ -124,7 +133,9 @@ const app = {
 
   logout() {
     localStorage.removeItem('cth_userId');
+    localStorage.removeItem('cth_userToken');
     this.user = null;
+    this.userToken = null;
     this.currentDay = null;
     document.getElementById('headerNav').style.display = 'none';
     this.renderRegister();
@@ -296,7 +307,7 @@ const app = {
     try {
       const res = await fetch(`/api/progress/${this.user.id}/topic`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${this.userToken}` },
         body: JSON.stringify({ day, topicId })
       });
       if (res.ok) {
@@ -457,7 +468,7 @@ const app = {
     try {
       const res = await fetch(`/api/quiz/${qs.day}/submit`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${this.userToken}` },
         body: JSON.stringify({ userId: this.user.id, answers: qs.answers })
       });
       const data = await res.json();
