@@ -190,6 +190,11 @@ app.post('/api/register', (req, res) => {
   const { name, email } = req.body;
   if (!name || !email) return res.status(400).json({ error: 'Name and email are required.' });
 
+  const htmlTagPattern = /[<>]/;
+  if (htmlTagPattern.test(name) || htmlTagPattern.test(email)) {
+    return res.status(400).json({ error: 'Name and email must not contain HTML characters.' });
+  }
+
   const users = readJSON(USERS_FILE);
   const normalizedEmail = email.trim().toLowerCase();
   let user = users.find(u => u.email === normalizedEmail);
