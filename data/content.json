@@ -1,0 +1,582 @@
+[
+  {
+    "day": 1,
+    "title": "Foundations: Claude Chat & Projects",
+    "objectives": [
+      "Understand Anthropic's mission and the Claude model family.",
+      "Navigate Claude.ai (web, desktop, mobile) and core Chat features.",
+      "Distinguish Free, Pro, Max, Team, and Enterprise plans.",
+      "Create Projects, manage knowledge, and configure memory."
+    ],
+    "blocks": [
+      {
+        "id": "1A",
+        "title": "Claude Chat Fundamentals",
+        "topics": [
+          {
+            "id": "1A1",
+            "title": "Anthropic at a Glance",
+            "content": "Anthropic is an AI safety company founded in 2021. Its mission is to build reliable, interpretable, and steerable AI systems. All usage of Claude products is governed by the Acceptable Use Policy (AUP), which prohibits harmful, illegal, or deceptive use cases. Support agents must understand the AUP to guide customers on permitted usage."
+          },
+          {
+            "id": "1A2",
+            "title": "Model Family: Opus, Sonnet, Haiku",
+            "content": "Claude comes in three model tiers: Opus (most capable, best for complex reasoning and analysis), Sonnet (balanced performance and speed, ideal for most tasks), and Haiku (fastest and most cost-effective, great for simple queries). Choosing the right model depends on the task complexity, latency requirements, and cost considerations."
+          },
+          {
+            "id": "1A3",
+            "title": "Surfaces: Web, Desktop, Mobile, Extension",
+            "content": "Claude is available on multiple surfaces: claude.ai (web app), the Claude desktop app (macOS and Windows), the mobile app (iOS and Android), and a browser extension. Each surface provides the same core Chat experience but may differ in feature availability (e.g., Cowork is desktop-only)."
+          },
+          {
+            "id": "1A4",
+            "title": "Plans & Limits",
+            "content": "Claude offers several plans: Free (basic access with message caps), Pro (higher limits, priority access), Max (highest individual limits), Team (collaboration features, admin controls), and Enterprise (SSO, audit logs, custom retention). Each plan has different message caps, file size limits, and feature access. Message caps reset on a rolling window."
+          },
+          {
+            "id": "1A5",
+            "title": "Chat Essentials",
+            "content": "Core chat features include: starting new conversations, regenerating responses (Claude produces a new answer), branching conversations (explore alternate paths), and sharing conversations via link. Users can also edit previous messages to refork the conversation from that point."
+          },
+          {
+            "id": "1A6",
+            "title": "Artifacts",
+            "content": "Artifacts are rich, interactive outputs Claude can produce inline: code snippets (with syntax highlighting), documents (markdown), diagrams (Mermaid), and HTML/React previews (rendered live). Artifacts appear in a side panel and can be copied, downloaded, or iterated upon."
+          },
+          {
+            "id": "1A7",
+            "title": "File Uploads",
+            "content": "Claude supports uploading files for analysis. Supported formats include PDF, DOCX, XLSX, CSV, images (PNG, JPG, GIF, WebP), and audio files. The default single-file size limit is 30 MB. Claude can read, summarize, extract data from, and answer questions about uploaded files."
+          },
+          {
+            "id": "1A8",
+            "title": "Web Search & Research Mode",
+            "content": "Web search allows Claude to fetch real-time information from the internet. It can trigger automatically when Claude detects the query needs current data, or be toggled on manually. Research mode goes deeper, performing multi-step searches and synthesizing findings. Citations are provided for all web-sourced claims."
+          }
+        ]
+      },
+      {
+        "id": "1B",
+        "title": "Projects & Memory",
+        "topics": [
+          {
+            "id": "1B1",
+            "title": "What is a Project?",
+            "content": "A Project is a persistent context container in Claude. Unlike single conversations that start fresh, Projects maintain a set of reference files and custom instructions across all chats within that Project. This makes them ideal for ongoing work where Claude needs consistent background knowledge."
+          },
+          {
+            "id": "1B2",
+            "title": "Project Knowledge",
+            "content": "Users can upload reference files to a Project (up to 200K tokens of context). These files are automatically available to Claude in every conversation within that Project. Supported file types include documents, code files, spreadsheets, and more. Claude will ground its answers in these files when relevant."
+          },
+          {
+            "id": "1B3",
+            "title": "Custom Instructions",
+            "content": "Each Project can have custom instructions — a per-Project system prompt that shapes how Claude behaves. This can define tone, domain constraints, output format preferences, and more. Custom instructions take precedence over user-level preferences when there is a conflict."
+          },
+          {
+            "id": "1B4",
+            "title": "Team Collaboration",
+            "content": "Projects can be shared with team members in two roles: Viewer (can read and chat) and Editor (can also modify files and instructions). This enables collaborative knowledge management where teams maintain shared context and consistent AI interactions."
+          },
+          {
+            "id": "1B5",
+            "title": "Memory Model",
+            "content": "Claude has two memory scopes: global memory (persists across all conversations and Projects) and Project-scoped memory (persists only within a specific Project). Memory stores facts, preferences, and context Claude learns during conversations. Incognito mode disables all memory writing."
+          },
+          {
+            "id": "1B6",
+            "title": "Privacy & Data Controls",
+            "content": "Users control their data through privacy settings. Team and Enterprise plans have stricter defaults around data usage. Users can delete conversations, clear memory, and control whether their data is used for model improvement. The Trust Center and Privacy Policy provide authoritative details."
+          },
+          {
+            "id": "1B7",
+            "title": "Best Practices: Projects vs. Single Chats",
+            "content": "Use Projects when you have recurring tasks with stable context (e.g., a support KB, a codebase, ongoing research). Use single chats for one-off questions, quick explorations, or tasks that don't need persistent context. Over-using Projects with stale files can degrade answer quality."
+          }
+        ]
+      }
+    ],
+    "labs": [
+      {
+        "id": "lab1A",
+        "title": "Lab 1A: Claude.ai Basics",
+        "description": "Create a Claude.ai account; send 5 prompts; produce an Artifact (chart) and export a conversation."
+      },
+      {
+        "id": "lab1B",
+        "title": "Lab 1B: Build a Support Knowledge Base Project",
+        "description": "Build a 'Support Knowledge Base' Project with 3 reference docs + custom instructions; share with a teammate; have Claude answer grounded only in Project files."
+      }
+    ],
+    "troubleshooting": [
+      { "symptom": "Message limit reached", "fix": "Caps reset on a rolling window. Check plan tier for specific limits. Upgrade plan for higher caps." },
+      { "symptom": "File upload fails", "fix": "Verify file is under 30 MB and is a supported MIME type (PDF, DOCX, XLSX, CSV, images, audio)." },
+      { "symptom": "Web search not triggering", "fix": "Check that the web search toggle is enabled. Try rephrasing the query to signal need for current information." },
+      { "symptom": "Login loop / SSO failure", "fix": "Clear cookies, try incognito mode, check Identity Provider (IdP) status page." },
+      { "symptom": "Project files not referenced", "fix": "Check file ingest status. Files may exceed the 200K token budget — remove lower-priority files." },
+      { "symptom": "Memory not persisting", "fix": "Ensure Incognito mode is off and the memory toggle is enabled in settings." }
+    ]
+  },
+  {
+    "day": 2,
+    "title": "Skills & Connectors",
+    "objectives": [
+      "Define what a Skill is and how Claude auto-invokes it.",
+      "Author a SKILL.md file with proper YAML frontmatter.",
+      "Install, authorize, and revoke Connectors.",
+      "Distinguish first-party Connectors from third-party MCP apps."
+    ],
+    "blocks": [
+      {
+        "id": "2A",
+        "title": "Agent Skills",
+        "topics": [
+          {
+            "id": "2A1",
+            "title": "Skill Anatomy",
+            "content": "A Skill is defined by a SKILL.md file containing YAML frontmatter with required fields: 'name' and 'description'. The description tells Claude when to invoke the Skill. Supporting files (scripts, templates, data) can be bundled alongside SKILL.md."
+          },
+          {
+            "id": "2A2",
+            "title": "Trigger Model",
+            "content": "Claude reads the 'description' field in SKILL.md and automatically decides when to invoke the Skill based on the user's prompt. The description acts as a semantic trigger — Claude matches user intent to Skill descriptions. No explicit invocation command is needed."
+          },
+          {
+            "id": "2A3",
+            "title": "Public vs. Private vs. User Skills",
+            "content": "Skills exist at three levels: Public (available to all users via marketplace), Private (organization-internal), and User (personal, stored locally). Precedence order: User > Private > Public. This allows organizations to override public Skills with custom versions."
+          },
+          {
+            "id": "2A4",
+            "title": "Writing Effective Descriptions",
+            "content": "The description field is critical for accurate triggering. Too generic ('helps with documents') causes false positives. Too narrow ('generates Q3 2024 sales reports for ACME Corp') misses valid triggers. Aim for specific but generalizable descriptions that capture the Skill's core capability."
+          },
+          {
+            "id": "2A5",
+            "title": "Bundling Assets",
+            "content": "Skills can include supporting files: executable scripts (Python, Node.js, shell), templates (markdown, HTML), and reference data (JSON, CSV). These are stored alongside SKILL.md and referenced within the Skill's instructions. Claude can execute bundled scripts when the Skill is triggered."
+          },
+          {
+            "id": "2A6",
+            "title": "Distribution via Plugins",
+            "content": "Skills can be packaged into plugins for distribution through the marketplace. A plugin bundles one or more Skills with a plugin.json manifest. This enables sharing Skills across teams and organizations with proper versioning and discovery."
+          }
+        ]
+      },
+      {
+        "id": "2B",
+        "title": "Connectors & Integrations",
+        "topics": [
+          {
+            "id": "2B1",
+            "title": "Connector Model",
+            "content": "Connectors are first-party integrations built and maintained by Anthropic that connect Claude to external services. They differ from third-party MCP apps, which are community-built. Connectors use standardized OAuth flows and have tighter security guarantees."
+          },
+          {
+            "id": "2B2",
+            "title": "Authentication: OAuth Flows",
+            "content": "Connectors authenticate via OAuth 2.0. When a user enables a Connector, they're redirected to the service's OAuth consent screen to grant specific scopes. Tokens are managed by Anthropic and automatically refreshed. Users can revoke access at any time."
+          },
+          {
+            "id": "2B3",
+            "title": "Connector Catalog",
+            "content": "Available first-party Connectors include: Google Drive, Gmail, Google Calendar, Slack, GitHub, Jira, Asana, Notion, and Linear. Each provides read and/or write access to the connected service, allowing Claude to fetch data and take actions."
+          },
+          {
+            "id": "2B4",
+            "title": "Conversation vs. Account Scope",
+            "content": "Connectors can operate at two scopes: per-conversation (enabled for a single chat) or per-account (enabled globally). Per-conversation scope is useful for one-off tasks; per-account scope keeps the Connector available across all conversations."
+          },
+          {
+            "id": "2B5",
+            "title": "Enabling and Disabling",
+            "content": "Users toggle Connectors on/off in chat (via the integrations menu) or in account settings. Disabling a Connector immediately revokes Claude's access to that service for the user. Re-enabling requires re-authorization."
+          },
+          {
+            "id": "2B6",
+            "title": "Enterprise Admin Controls",
+            "content": "Enterprise admins can manage Connectors at the organization level: allow-lists (only approved Connectors), deny-lists (block specific Connectors), and audit logs (track which Connectors are used, by whom, and when). This ensures compliance with organizational policies."
+          },
+          {
+            "id": "2B7",
+            "title": "Data Flow & Retention",
+            "content": "When a Connector is used, Claude sees only the data the user has authorized access to. Claude does not store Connector data beyond the conversation context. Data retention follows the same rules as regular conversations based on the user's plan and settings."
+          }
+        ]
+      }
+    ],
+    "labs": [
+      {
+        "id": "lab2A",
+        "title": "Lab 2A: Build a Weekly Status Report Skill",
+        "description": "Build a 'weekly-status-report' Skill that produces a templated markdown report; add a Python helper script and verify Claude calls it."
+      },
+      {
+        "id": "lab2B",
+        "title": "Lab 2B: Connect Google Drive & GitHub",
+        "description": "Connect Google Drive (summarize a sample doc) and GitHub (triage 3 issues in a sandbox repo); revoke and re-authorize."
+      }
+    ],
+    "troubleshooting": [
+      { "symptom": "Skill never triggers", "fix": "Description is likely too vague or too narrow. Revise the description field to be specific but generalizable." },
+      { "symptom": "Two Skills triggering on same prompt", "fix": "Clarify scope by making descriptions more distinct. Ensure Skills don't overlap in capability." },
+      { "symptom": "Helper script errors", "fix": "Check file permissions, shebang line (#!/usr/bin/env python3), and that all dependencies are installed." },
+      { "symptom": "OAuth callback fails", "fix": "Check for cookie blockers, popup blockers, or IdP timeout. Try in a fresh browser session." },
+      { "symptom": "Insufficient scope (403)", "fix": "Re-authorize the Connector with the correct permissions/scopes." },
+      { "symptom": "Tokens expired (401)", "fix": "Trigger the re-authorization flow. Token refresh should be automatic, but manual re-auth may be needed." },
+      { "symptom": "Admin policy blocks connection", "fix": "Escalate to the organization's IT admin to update the allow-list or policy." }
+    ]
+  },
+  {
+    "day": 3,
+    "title": "Claude Code (Basics to Advanced)",
+    "objectives": [
+      "Install Claude Code on macOS, Linux, and Windows (WSL).",
+      "Authenticate, configure, and run basic commands.",
+      "Use sub-agents, plugins, and Skills inside Claude Code.",
+      "Read and analyze logs for support cases."
+    ],
+    "blocks": [
+      {
+        "id": "3A",
+        "title": "Installation & Basics",
+        "topics": [
+          {
+            "id": "3A1",
+            "title": "What is Claude Code?",
+            "content": "Claude Code is an agentic coding tool that runs from the terminal. It can read, write, and execute code in your local environment. Unlike Chat, Claude Code operates directly on your filesystem, making it ideal for software development tasks like writing code, debugging, running tests, and managing git workflows."
+          },
+          {
+            "id": "3A2",
+            "title": "Prerequisites",
+            "content": "Claude Code requires Node.js 18 or higher, npm (comes with Node.js), and git. On Windows, it must run inside WSL (Windows Subsystem for Linux). Verify prerequisites with: node --version, npm --version, git --version."
+          },
+          {
+            "id": "3A3",
+            "title": "Installation",
+            "content": "Install Claude Code globally via npm: 'npm install -g @anthropic-ai/claude-code'. This makes the 'claude' command available system-wide. After installation, run 'claude' in any directory to start. First run triggers browser-based authentication with your Anthropic account."
+          },
+          {
+            "id": "3A4",
+            "title": "First Run & Authentication",
+            "content": "Running 'claude' for the first time opens a browser window for authentication. You must have an Anthropic account. After successful auth, credentials are stored in ~/.claude/credentials. Subsequent runs authenticate automatically."
+          },
+          {
+            "id": "3A5",
+            "title": "Project Init: CLAUDE.md",
+            "content": "Running '/init' in a repository creates a CLAUDE.md file — the project-level configuration that gives Claude context about the codebase. It also creates the .claude/ directory for agents, skills, and settings. CLAUDE.md should describe the project, conventions, and key files."
+          },
+          {
+            "id": "3A6",
+            "title": "Core Commands",
+            "content": "Essential slash commands: /help (show all commands), /clear (reset conversation), /init (initialize project), /model (switch model), /cost (show session spend), /exit (quit), /doctor (run diagnostics). These commands control Claude Code's behavior and provide information about the session."
+          },
+          {
+            "id": "3A7",
+            "title": "File Operations",
+            "content": "Claude Code can view, edit, and create files directly on disk. It can also run tests, execute scripts, and interact with git. All file operations require user consent through the permission system — Claude Code will ask before reading, writing, or executing."
+          },
+          {
+            "id": "3A8",
+            "title": "Permission System",
+            "content": "Claude Code uses a tiered permission system: read (view files), write (modify files), and execute (run commands). Users are prompted before each action and can approve individually or set auto-approve modes for trusted operations. This ensures Claude Code never takes unauthorized actions."
+          },
+          {
+            "id": "3A9",
+            "title": "Models & Cost Tracking",
+            "content": "Claude Code supports model switching via /model (Opus, Sonnet, Haiku). The /cost command shows cumulative spend for the current session. Users can track costs to stay within budgets. Different models have different per-token pricing."
+          }
+        ]
+      },
+      {
+        "id": "3B",
+        "title": "Advanced Claude Code",
+        "topics": [
+          {
+            "id": "3B1",
+            "title": "Sub-Agents",
+            "content": "Sub-agents are specialized AI agents defined in .claude/agents/*.md files. Each has a description that determines when Claude Code delegates tasks to it. Sub-agents are useful for separating concerns: a 'code-reviewer' agent for reviews, a 'test-writer' agent for tests, etc."
+          },
+          {
+            "id": "3B2",
+            "title": "Plugins in Claude Code",
+            "content": "Plugins extend Claude Code's capabilities. Manage them with: /plugins list (show installed), /plugins install (add new), /plugins update (update existing), /plugins disable (turn off). Plugins can add new tools, Skills, and MCP server connections."
+          },
+          {
+            "id": "3B3",
+            "title": "Skills Inside Claude Code",
+            "content": "Skills stored in .claude/skills/ are auto-loaded by Claude Code. They work the same as in Chat — SKILL.md files with descriptions that Claude matches against user prompts. Skills in Claude Code can include file operations, shell commands, and code generation templates."
+          },
+          {
+            "id": "3B4",
+            "title": "Hooks",
+            "content": "Hooks are pre- and post-tool callbacks that execute automatically. Examples: running a linter after every file edit, logging audit trails before destructive operations. Hooks are configured in .claude/settings and can be any executable command."
+          },
+          {
+            "id": "3B5",
+            "title": "Logging & Diagnostics",
+            "content": "Session logs are stored at ~/.claude/logs/session-*.jsonl in JSON Lines format. Verbose mode provides detailed output for debugging. The 'claude doctor' command runs comprehensive diagnostics: checking Node version, auth status, network connectivity, and plugin health."
+          },
+          {
+            "id": "3B6",
+            "title": "CI/CD Integration",
+            "content": "Claude Code supports non-interactive mode via the -p flag (pipe mode). This allows integration into CI/CD pipelines: 'claude -p \"run tests and fix failures\"'. Exit codes indicate success (0) or failure (non-zero), enabling automated workflows."
+          }
+        ]
+      }
+    ],
+    "labs": [
+      {
+        "id": "lab3A",
+        "title": "Lab 3A: Install & Basic Usage",
+        "description": "Install Claude Code, authenticate, run 'claude' in an empty repo; add tests to an existing Python module and commit them."
+      },
+      {
+        "id": "lab3B",
+        "title": "Lab 3B: Sub-Agents, Plugins & Logs",
+        "description": "Create a 'code-reviewer' sub-agent triggered after commits; install one plugin and verify with '/plugins list'; inspect a session log."
+      }
+    ],
+    "troubleshooting": [
+      { "symptom": "command not found: claude", "fix": "npm global bin directory is not in PATH. Run 'npm config get prefix' and add its bin/ to your shell PATH." },
+      { "symptom": "Auth fails", "fix": "Clear ~/.claude/credentials and retry authentication. Ensure browser can reach Anthropic's auth endpoint." },
+      { "symptom": "Node version errors", "fix": "Install Node.js 18+ via nvm (Node Version Manager). Run 'nvm install 18 && nvm use 18'." },
+      { "symptom": "Windows install issues", "fix": "Claude Code must run inside WSL. Install WSL, then install Node.js and Claude Code within WSL." },
+      { "symptom": "Network/proxy errors", "fix": "Set HTTPS_PROXY environment variable to your proxy URL. Check firewall rules for Anthropic API endpoints." },
+      { "symptom": "Sub-agent never invoked", "fix": "The agent's description doesn't match the task. Revise the description in .claude/agents/<name>.md." },
+      { "symptom": "Plugin failed to load", "fix": "Check plugin version compatibility. Run 'claude doctor' for diagnostics." },
+      { "symptom": "Hook never fires", "fix": "Check the executable bit on the hook script and verify the event name matches the trigger." },
+      { "symptom": "Excessive context usage", "fix": "Use sub-agents to offload work. Prune CLAUDE.md to include only essential information." }
+    ]
+  },
+  {
+    "day": 4,
+    "title": "MCP Servers & Claude Cowork",
+    "objectives": [
+      "Explain MCP's purpose and architecture.",
+      "Install and configure MCP servers in Claude.ai, Code, and Cowork.",
+      "Enable Cowork and run multi-step tasks with files, plugins, and Skills.",
+      "Configure scheduled tasks, live artifacts, and Dispatch."
+    ],
+    "blocks": [
+      {
+        "id": "4A",
+        "title": "Model Context Protocol (MCP)",
+        "topics": [
+          {
+            "id": "4A1",
+            "title": "MCP Overview",
+            "content": "MCP (Model Context Protocol) is an open protocol for connecting LLMs to external systems. It provides a standardized way for AI models to access tools, data, and prompts from any compatible server. Think of it as a universal adapter between AI and the rest of your software stack."
+          },
+          {
+            "id": "4A2",
+            "title": "Three Primitives: Tools, Resources, Prompts",
+            "content": "MCP defines three core primitives: Tools (actions the model can take, like 'search_database' or 'send_email'), Resources (data the model can read, like files or API responses), and Prompts (reusable prompt templates the server provides). Each primitive has a defined schema."
+          },
+          {
+            "id": "4A3",
+            "title": "Transports: stdio, SSE, Streamable HTTP",
+            "content": "MCP supports three transport mechanisms: stdio (standard input/output, for local processes), SSE (Server-Sent Events, for persistent connections), and streamable HTTP (for request/response patterns). Choose based on your deployment: stdio for local, SSE/HTTP for remote."
+          },
+          {
+            "id": "4A4",
+            "title": "Server Discovery & Configuration",
+            "content": "MCP servers are added via: 'claude mcp add <name> <command>' in Claude Code, JSON configuration files, or the marketplace. The JSON config specifies server name, command, arguments, and environment variables. Restart the client after adding a server."
+          },
+          {
+            "id": "4A5",
+            "title": "Auth Patterns",
+            "content": "MCP servers can authenticate using: API keys (passed as environment variables), OAuth (for user-specific access), or no auth (for local-only servers). The auth method depends on what the server connects to and the security requirements."
+          },
+          {
+            "id": "4A6",
+            "title": "Security Model",
+            "content": "MCP has a layered security model: sandboxing (servers run in isolation), allow-lists (admin-controlled approved servers), and per-tool consent (users approve each tool call). This prevents unauthorized actions and data access."
+          },
+          {
+            "id": "4A7",
+            "title": "Authoring MCP Servers",
+            "content": "MCP servers can be authored using the Python SDK ('mcp' package) or TypeScript SDK. A minimal server defines tools with input schemas and handler functions. The SDKs handle protocol negotiation, transport, and serialization."
+          },
+          {
+            "id": "4A8",
+            "title": "Advanced: Sampling, Notifications, File Access",
+            "content": "Advanced MCP features include: sampling (server requests the model to generate text), notifications (real-time updates from server to client), and file-system access (controlled read/write to local files). These enable complex, interactive workflows."
+          }
+        ]
+      },
+      {
+        "id": "4B",
+        "title": "Claude Cowork",
+        "topics": [
+          {
+            "id": "4B1",
+            "title": "What is Cowork?",
+            "content": "Claude Cowork is Anthropic's agentic desktop workspace. Unlike Chat (which is conversational), Cowork can autonomously execute multi-step tasks: browsing files, running code, creating documents, and interacting with plugins — all within a sandboxed environment."
+          },
+          {
+            "id": "4B2",
+            "title": "Availability",
+            "content": "Cowork is available on paid plans: Pro, Max, Team, and Enterprise. It requires the Claude desktop app (not the web version). Availability may be limited by region during gradual rollout."
+          },
+          {
+            "id": "4B3",
+            "title": "Enabling Cowork",
+            "content": "Enable Cowork in Settings > Features > Enable Cowork. Then grant folder access so Cowork can read and write files in your specified directories. OS-level privacy permissions (e.g., macOS Full Disk Access) may also be required."
+          },
+          {
+            "id": "4B4",
+            "title": "Task Loop: Plan, Execute, Review",
+            "content": "Cowork follows a task loop: it plans the approach, executes steps (running code, creating files), and presents results for review. Users can steer the process at any point — approving steps, redirecting, or stopping execution."
+          },
+          {
+            "id": "4B5",
+            "title": "Sandbox Environment",
+            "content": "Cowork runs tasks in an isolated sandbox (Apple Virtualization on macOS). This VM-based isolation means code execution can't affect your host system. The sandbox has its own shell, file system view, and execution environment."
+          },
+          {
+            "id": "4B6",
+            "title": "Output Types",
+            "content": "Cowork can produce rich outputs: Excel files with working formulas, PowerPoint presentations, Word documents, PDFs, and images. These are saved to your designated output folder and can be opened in their native applications."
+          },
+          {
+            "id": "4B7",
+            "title": "Cowork Plugins",
+            "content": "Cowork integrates with 11 plugins: Asana, Canva, Cloudflare, Figma, GitHub, Google Drive, Jira, Linear, Notion, Sentry, and Slack. Each plugin connects Cowork to the external service, enabling automated workflows across tools."
+          },
+          {
+            "id": "4B8",
+            "title": "Scheduled Tasks, Live Artifacts & Dispatch",
+            "content": "Advanced Cowork features: /schedule creates recurring tasks (e.g., daily report generation), Live Artifacts update in real-time as Cowork works, and Dispatch lets users initiate Cowork tasks from mobile. These enable hands-off automation."
+          }
+        ]
+      }
+    ],
+    "labs": [
+      {
+        "id": "lab4A",
+        "title": "Lab 4A: MCP Server Setup",
+        "description": "Add an existing MCP server (filesystem or fetch) and call one of its tools; write a minimal 'echo' MCP server in Python and connect it."
+      },
+      {
+        "id": "lab4B",
+        "title": "Lab 4B: Cowork Hands-On",
+        "description": "Enable Cowork, point it at a folder, organize files by type; build an Excel report from a CSV (verify formulas calculate)."
+      }
+    ],
+    "troubleshooting": [
+      { "symptom": "MCP server doesn't appear", "fix": "Check JSON config syntax (valid JSON, correct keys). Restart the Claude client after adding the server." },
+      { "symptom": "Tool call timeout", "fix": "Increase timeout in server config. Check server logs for slow operations or deadlocks." },
+      { "symptom": "MCP auth errors", "fix": "Re-issue API tokens. Verify transport matches server expectation (stdio vs SSE vs HTTP)." },
+      { "symptom": "Streaming hangs", "fix": "Check SSE keepalive interval. Ensure the server sends heartbeat events to prevent connection timeout." },
+      { "symptom": "Cowork not visible", "fix": "Check: (1) plan tier supports Cowork, (2) desktop app is latest version, (3) region availability." },
+      { "symptom": "Folder access denied", "fix": "Grant OS-level privacy permissions (macOS: System Settings > Privacy > Full Disk Access for Claude)." },
+      { "symptom": "VM won't start", "fix": "Restart the Claude desktop app. Check available disk space. On macOS, verify virtualization is enabled." },
+      { "symptom": "Plugin auth lost in Cowork", "fix": "Re-link the plugin from Settings > Plugins. Re-authorize OAuth if prompted." }
+    ]
+  },
+  {
+    "day": 5,
+    "title": "Plugins, Troubleshooting & Final Assessment",
+    "objectives": [
+      "Explain plugins as bundles of Skills, Connectors, sub-agents, and MCP servers.",
+      "Install plugins from public and private marketplaces.",
+      "Triage tickets across all Claude tools; read logs across surfaces.",
+      "Build escalation packets; pass the cumulative final assessment."
+    ],
+    "blocks": [
+      {
+        "id": "5A",
+        "title": "Plugins & Marketplaces",
+        "topics": [
+          {
+            "id": "5A1",
+            "title": "Plugin Anatomy",
+            "content": "A plugin is defined by a plugin.json manifest file that bundles related assets: Skills (SKILL.md files), MCP servers, sub-agents, and Connector configurations. The manifest specifies metadata (name, version, author), dependencies, and what the plugin provides."
+          },
+          {
+            "id": "5A2",
+            "title": "Public Marketplace",
+            "content": "The public marketplace lets users discover, browse, and install plugins. Plugins have ratings, reviews, and install counts. Installation is one-click. Updates are managed centrally — users can opt into auto-updates or update manually."
+          },
+          {
+            "id": "5A3",
+            "title": "Private Marketplaces",
+            "content": "Enterprise admins can create private marketplaces — internal catalogs of vetted plugins. This allows organizations to distribute custom plugins (e.g., internal tools, proprietary integrations) while controlling what's available to users. Public marketplace may be disabled."
+          },
+          {
+            "id": "5A4",
+            "title": "Trust & Security",
+            "content": "Plugin security involves: code signing (verify publisher identity), allow-lists (admin-approved plugins only), and review processes (both automated scanning and manual review for public marketplace). Users should only install plugins from trusted sources."
+          },
+          {
+            "id": "5A5",
+            "title": "Plugin Commands",
+            "content": "Manage plugins with slash commands: /plugins list (show all installed), /plugins install <name> (add a plugin), /plugins update <name> (update to latest), /plugins disable <name> (turn off without uninstalling). These work in Claude Code and Cowork."
+          },
+          {
+            "id": "5A6",
+            "title": "Cross-Product Portability",
+            "content": "Plugins can work across Claude Code and Cowork, or be specific to one. The plugin.json manifest declares compatibility. Skills and MCP servers typically work in both; Connector-dependent features may be surface-specific."
+          },
+          {
+            "id": "5A7",
+            "title": "Plugin Telemetry",
+            "content": "Plugin authors can opt into anonymous usage analytics: install counts, invocation frequency, error rates. This data helps authors improve their plugins. Users can see what telemetry a plugin collects before installing."
+          }
+        ]
+      },
+      {
+        "id": "5B",
+        "title": "Cross-Product Troubleshooting",
+        "topics": [
+          {
+            "id": "5B1",
+            "title": "Triage Matrix",
+            "content": "The triage matrix maps symptoms to likely products and first checks. Pattern: identify the product (Chat, Code, Cowork, MCP), check the three most common causes for that product, then escalate if unresolved. Most issues fall into: auth, network, rate-limit, model error, plugin/skill, or billing."
+          },
+          {
+            "id": "5B2",
+            "title": "Log Locations",
+            "content": "Key log locations: Claude.ai (browser console + network tab, Help > Report Issue), Desktop app (~/Library/Logs/Claude/ on macOS, %APPDATA%\\Claude\\logs\\ on Windows), Claude Code (~/.claude/logs/session-*.jsonl, 'claude doctor'), Cowork (desktop app log path + VM log), MCP servers (server stderr/stdout captured by host)."
+          },
+          {
+            "id": "5B3",
+            "title": "Common Issue Categories",
+            "content": "Six common categories: Authentication (login failures, token expiry), Network (timeouts, proxy issues), Rate Limiting (message caps, API quotas), Model Errors (hallucinations, refusals), Plugin/Skill Issues (trigger failures, crashes), and Billing (plan limits, payment failures)."
+          },
+          {
+            "id": "5B4",
+            "title": "Escalation Packets",
+            "content": "A proper escalation packet contains: detailed reproduction steps, timestamps (with timezone), request IDs (from response headers), relevant log excerpts, environment details (OS, app version, plan), and what was already tried. This enables another agent to pick up cold."
+          },
+          {
+            "id": "5B5",
+            "title": "Status Pages & Known Incidents",
+            "content": "Always check status.anthropic.com before deep-diving a support case. Active incidents explain many 'sudden' issues. Subscribe to status updates for proactive awareness. Known incidents have estimated resolution times and workarounds."
+          }
+        ]
+      }
+    ],
+    "labs": [
+      {
+        "id": "lab5A",
+        "title": "Lab 5A: Plugin Installation & Authoring",
+        "description": "Install a public plugin in Claude Code, exercise one of its tools; author a 'hello-world' plugin bundling one Skill and publish locally."
+      },
+      {
+        "id": "lab5B",
+        "title": "Lab 5B: Mock Support Tickets",
+        "description": "Work 3 mock support tickets end-to-end (one each for Code, Cowork, MCP); capture an escalation packet another agent could pick up cold."
+      }
+    ],
+    "troubleshooting": [
+      { "symptom": "Plugin not loading", "fix": "Check plugin.json syntax. Verify version compatibility with current Claude Code/Cowork version. Run 'claude doctor'." },
+      { "symptom": "Tool name collisions between plugins", "fix": "Use namespaced tool names. Disable conflicting plugin or rename tools in plugin.json." },
+      { "symptom": "MCP server output missing", "fix": "Check server stderr/stdout. MCP server logs are captured by the host process — check the host's log output." },
+      { "symptom": "Claude is slow", "fix": "First check status.anthropic.com for incidents. Then check: network latency, model tier (Opus is slower than Haiku), context size (large contexts = slower)." },
+      { "symptom": "Escalation missing information", "fix": "Ensure packet includes: repro steps, timestamps, request IDs, log excerpts, environment details, and what was already attempted." }
+    ]
+  }
+]

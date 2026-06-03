@@ -1,0 +1,852 @@
+[
+  {
+    "day": 1,
+    "questions": [
+      {
+        "id": "1q1",
+        "question": "Name the three current Claude model tiers and one trade-off between them.",
+        "options": [
+          "Opus (most capable, slower), Sonnet (balanced), Haiku (fastest, less capable)",
+          "GPT-4, GPT-3.5, GPT-3",
+          "Small, Medium, Large",
+          "Alpha, Beta, Gamma"
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "1q2",
+        "question": "Which Claude.ai plans include access to Claude Cowork?",
+        "options": [
+          "Free and Pro only",
+          "Pro, Max, Team, and Enterprise (all paid plans)",
+          "Enterprise only",
+          "All plans including Free"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "1q3",
+        "question": "What is an Artifact? Name three Artifact types Claude can render.",
+        "options": [
+          "A saved conversation — text, audio, video",
+          "A plugin output — charts, maps, tables",
+          "A rich inline output — code, documents/markdown, diagrams, HTML/React previews",
+          "A file attachment — PDF, DOCX, images"
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "1q4",
+        "question": "What is the default file-size limit for a single attachment on Claude.ai?",
+        "options": [
+          "10 MB",
+          "30 MB",
+          "50 MB",
+          "100 MB"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "1q5",
+        "question": "List two reasons web search may not trigger automatically.",
+        "options": [
+          "The web search toggle is disabled; the query doesn't signal need for current data",
+          "The user is on mobile; Claude is in dark mode",
+          "The file is too large; the model is Haiku",
+          "The Project has too many files; memory is disabled"
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "1q6",
+        "question": "What is the maximum context size a Project can hold (in tokens)?",
+        "options": [
+          "50K tokens",
+          "100K tokens",
+          "200K tokens",
+          "500K tokens"
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "1q7",
+        "question": "How does Project memory differ from global memory?",
+        "options": [
+          "Project memory is faster than global memory",
+          "Project memory persists only within a specific Project; global memory persists across all conversations",
+          "There is no difference",
+          "Global memory is only for Enterprise plans"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "1q8",
+        "question": "Inside a Project, which takes precedence: Project custom instructions or user preferences?",
+        "options": [
+          "User preferences always take precedence",
+          "They are merged equally",
+          "Project custom instructions take precedence",
+          "It depends on the plan tier"
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "1q9",
+        "question": "Does Incognito mode write to memory? Why or why not?",
+        "options": [
+          "Yes, it writes to encrypted memory",
+          "No, Incognito mode disables all memory writing to ensure privacy",
+          "Yes, but only to Project memory",
+          "No, but it still reads from existing memory"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "1q10",
+        "question": "A user says their Project 'forgets' reference files mid-chat — what is the likely cause?",
+        "options": [
+          "The files were deleted from the user's computer",
+          "Files may exceed the 200K token budget, or file ingest is incomplete",
+          "The user is on the Free plan",
+          "Memory is corrupted and needs reset"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "1q11",
+        "question": "Which surface does NOT support Claude Cowork?",
+        "options": [
+          "Desktop app (macOS)",
+          "Desktop app (Windows)",
+          "Claude.ai (web browser)",
+          "All of the above support Cowork"
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "1q12",
+        "question": "What should a support agent check first when a customer reports a 'login loop'?",
+        "options": [
+          "Check if Claude is down globally",
+          "Clear cookies, try incognito mode, check IdP status",
+          "Ask the customer to reinstall the app",
+          "Escalate immediately to engineering"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "1q13",
+        "question": "Which file formats are supported for upload on Claude.ai?",
+        "options": [
+          "Only PDF and images",
+          "PDF, DOCX, XLSX, CSV, images (PNG, JPG, GIF, WebP), and audio",
+          "Only text-based formats",
+          "Any file format without restriction"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "1q14",
+        "question": "What is the purpose of 'Research Mode' in Claude?",
+        "options": [
+          "It enables Claude to access internal databases",
+          "It performs multi-step web searches and synthesizes findings with citations",
+          "It allows Claude to run experiments",
+          "It is the same as regular web search"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "1q15",
+        "question": "When should a user choose a single chat over a Project?",
+        "options": [
+          "When they have recurring tasks with stable context",
+          "When working with a team on shared knowledge",
+          "For one-off questions, quick explorations, or tasks that don't need persistent context",
+          "When they need to upload more than 10 files"
+        ],
+        "correctAnswer": 2
+      }
+    ]
+  },
+  {
+    "day": 2,
+    "questions": [
+      {
+        "id": "2q1",
+        "question": "What two YAML frontmatter fields are required in every SKILL.md?",
+        "options": [
+          "title and author",
+          "name and description",
+          "version and type",
+          "id and trigger"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "2q2",
+        "question": "How does Claude decide when to invoke a Skill?",
+        "options": [
+          "The user must type a specific command",
+          "Claude reads the description field and matches it against user intent automatically",
+          "Skills run on a fixed schedule",
+          "The admin manually triggers Skills"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "2q3",
+        "question": "Why might a Skill with a too-generic description cause problems?",
+        "options": [
+          "It will never trigger",
+          "It will cause false positives — triggering on unrelated prompts",
+          "It will crash Claude",
+          "It will override all other Skills"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "2q4",
+        "question": "What is the precedence order for Skill levels?",
+        "options": [
+          "Public > Private > User",
+          "User > Private > Public",
+          "Private > User > Public",
+          "All have equal precedence"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "2q5",
+        "question": "Can a Skill include executable scripts? If so, what languages are supported?",
+        "options": [
+          "No, Skills are text-only",
+          "Yes — Python, Node.js, and shell scripts",
+          "Yes — only Python",
+          "Yes — only JavaScript"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "2q6",
+        "question": "What is the difference between a Connector and an MCP server?",
+        "options": [
+          "They are the same thing",
+          "Connectors are first-party (Anthropic-built, OAuth-based); MCP servers are open-protocol services built by anyone",
+          "MCP servers are first-party; Connectors are third-party",
+          "Connectors only work with Google products"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "2q7",
+        "question": "Name two Anthropic-built first-party Connectors.",
+        "options": [
+          "Docker and Kubernetes",
+          "Google Drive and GitHub",
+          "AWS and Azure",
+          "Figma and Canva"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "2q8",
+        "question": "Where does a user revoke a Connector's access?",
+        "options": [
+          "Only through the external service's settings",
+          "In Claude's account settings or the integrations menu in chat",
+          "By deleting their account",
+          "Connectors cannot be revoked"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "2q9",
+        "question": "A user gets '401 — token expired' — what should they do?",
+        "options": [
+          "Wait 24 hours for automatic reset",
+          "Trigger the re-authorization flow to refresh the token",
+          "Create a new account",
+          "Contact Anthropic billing"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "2q10",
+        "question": "Can a third-party MCP App be auto-invoked without user consent?",
+        "options": [
+          "Yes, all MCP apps auto-invoke",
+          "No — MCP tools require per-tool user consent before execution",
+          "Yes, if the admin approves it",
+          "Only on Enterprise plans"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "2q11",
+        "question": "What happens when two Skills have overlapping descriptions?",
+        "options": [
+          "Both execute simultaneously",
+          "The system crashes",
+          "Both may trigger on the same prompt, causing confusion — descriptions should be made more distinct",
+          "The newer Skill always wins"
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "2q12",
+        "question": "What scope options exist for Connectors?",
+        "options": [
+          "Read-only and read-write",
+          "Per-conversation and per-account",
+          "Local and remote",
+          "Admin and user"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "2q13",
+        "question": "What authentication method do Connectors use?",
+        "options": [
+          "API keys only",
+          "Username and password",
+          "OAuth 2.0 with scoped consent",
+          "SSH keys"
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "2q14",
+        "question": "How can Enterprise admins control which Connectors are available?",
+        "options": [
+          "They cannot — all Connectors are available to everyone",
+          "Through allow-lists, deny-lists, and audit logs",
+          "By contacting Anthropic support only",
+          "Through DNS filtering"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "2q15",
+        "question": "What should you check first when a helper script in a Skill fails?",
+        "options": [
+          "The Claude model version",
+          "File permissions, shebang line, and installed dependencies",
+          "The user's plan tier",
+          "Internet connectivity"
+        ],
+        "correctAnswer": 1
+      }
+    ]
+  },
+  {
+    "day": 3,
+    "questions": [
+      {
+        "id": "3q1",
+        "question": "What is the minimum required Node.js version for Claude Code?",
+        "options": [
+          "Node.js 14",
+          "Node.js 16",
+          "Node.js 18",
+          "Node.js 20"
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "3q2",
+        "question": "Which npm package name installs the Claude Code CLI?",
+        "options": [
+          "claude-code",
+          "@anthropic-ai/claude-code",
+          "anthropic-cli",
+          "@claude/code"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "3q3",
+        "question": "What does /init do in a new repo?",
+        "options": [
+          "Installs dependencies",
+          "Creates CLAUDE.md and .claude/ directory for project configuration",
+          "Runs the test suite",
+          "Initializes a git repository"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "3q4",
+        "question": "What slash command shows current session spend?",
+        "options": [
+          "/billing",
+          "/usage",
+          "/cost",
+          "/spend"
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "3q5",
+        "question": "How would you reset authentication if it is stuck?",
+        "options": [
+          "Reinstall Claude Code",
+          "Clear ~/.claude/credentials and retry",
+          "Restart your computer",
+          "Use /auth reset command"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "3q6",
+        "question": "Where are sub-agent definitions stored?",
+        "options": [
+          "~/.claude/agents/",
+          ".claude/agents/*.md in the project directory",
+          "/usr/local/claude/agents/",
+          "In the CLAUDE.md file"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "3q7",
+        "question": "What field in a sub-agent file controls when it is invoked?",
+        "options": [
+          "The 'trigger' field",
+          "The 'name' field",
+          "The 'description' field",
+          "The 'schedule' field"
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "3q8",
+        "question": "What flag runs Claude Code non-interactively for CI?",
+        "options": [
+          "--ci",
+          "--non-interactive",
+          "-p (pipe mode)",
+          "--batch"
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "3q9",
+        "question": "Where are session logs written by default?",
+        "options": [
+          "/var/log/claude/",
+          "~/.claude/logs/session-*.jsonl",
+          "./logs/",
+          "~/Documents/Claude/logs/"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "3q10",
+        "question": "What does 'claude doctor' check?",
+        "options": [
+          "Only the Node.js version",
+          "Only network connectivity",
+          "Node version, auth status, network connectivity, and plugin health",
+          "Only plugin compatibility"
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "3q11",
+        "question": "On Windows, where must Claude Code run?",
+        "options": [
+          "In PowerShell natively",
+          "In Command Prompt",
+          "Inside WSL (Windows Subsystem for Linux)",
+          "In any terminal emulator"
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "3q12",
+        "question": "What are Hooks in Claude Code?",
+        "options": [
+          "Keyboard shortcuts",
+          "Pre- and post-tool callbacks that execute automatically (e.g., linting after edits)",
+          "Git hooks for commits",
+          "API webhooks"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "3q13",
+        "question": "How do you list installed plugins in Claude Code?",
+        "options": [
+          "/plugins show",
+          "/plugins list",
+          "/list plugins",
+          "/show plugins"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "3q14",
+        "question": "What causes 'command not found: claude' after installation?",
+        "options": [
+          "Claude Code is not compatible with the OS",
+          "The npm global bin directory is not in the shell PATH",
+          "Node.js is not installed",
+          "The internet connection was lost"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "3q15",
+        "question": "What is the recommended solution for excessive context usage in Claude Code?",
+        "options": [
+          "Upgrade to a higher plan",
+          "Use sub-agents to offload work and prune CLAUDE.md",
+          "Restart Claude Code",
+          "Switch to a larger model"
+        ],
+        "correctAnswer": 1
+      }
+    ]
+  },
+  {
+    "day": 4,
+    "questions": [
+      {
+        "id": "4q1",
+        "question": "What are MCP's three core primitives?",
+        "options": [
+          "Input, Output, Process",
+          "Tools, Resources, Prompts",
+          "Read, Write, Execute",
+          "Request, Response, Stream"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "4q2",
+        "question": "Name two MCP transport options.",
+        "options": [
+          "HTTP and FTP",
+          "stdio and SSE (Server-Sent Events)",
+          "WebSocket and gRPC",
+          "TCP and UDP"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "4q3",
+        "question": "Which CLI command adds an MCP server to Claude Code?",
+        "options": [
+          "claude install mcp",
+          "claude mcp add <name> <command>",
+          "claude add-server",
+          "claude connect mcp"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "4q4",
+        "question": "What is the difference between an MCP 'tool' and a 'resource'?",
+        "options": [
+          "They are the same thing",
+          "A tool is an action the model can take; a resource is data the model can read",
+          "A resource is an action; a tool is data",
+          "Tools are for MCP; resources are for Connectors"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "4q5",
+        "question": "How does the user grant consent for an MCP tool to run?",
+        "options": [
+          "Consent is automatic for all tools",
+          "Users approve each tool call via per-tool consent prompts",
+          "Admin pre-approves all tools at setup",
+          "Consent is handled by the MCP server"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "4q6",
+        "question": "On which plans is Cowork available?",
+        "options": [
+          "All plans including Free",
+          "Pro, Max, Team, and Enterprise (paid plans only)",
+          "Enterprise only",
+          "Max and Enterprise only"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "4q7",
+        "question": "What is the core difference between Chat and Cowork?",
+        "options": [
+          "Chat is text-only; Cowork supports images",
+          "Chat is conversational; Cowork autonomously executes multi-step tasks in a sandboxed environment",
+          "Chat is free; Cowork is paid",
+          "Chat uses Haiku; Cowork uses Opus"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "4q8",
+        "question": "Name 4 of the 11 currently supported Cowork plugins.",
+        "options": [
+          "Docker, Kubernetes, AWS, Azure",
+          "GitHub, Slack, Notion, Jira",
+          "Chrome, Firefox, Safari, Edge",
+          "Python, Node, Rust, Go"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "4q9",
+        "question": "Which OS-level virtualization does Cowork use on macOS?",
+        "options": [
+          "Docker containers",
+          "VMware Fusion",
+          "Apple Virtualization (lightweight VM)",
+          "Parallels Desktop"
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "4q10",
+        "question": "What does Dispatch do?",
+        "options": [
+          "It dispatches support tickets",
+          "It lets users initiate Cowork tasks from mobile",
+          "It routes API requests",
+          "It schedules cron jobs"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "4q11",
+        "question": "What SDKs are available for authoring MCP servers?",
+        "options": [
+          "Java and C++ only",
+          "Python SDK (mcp package) and TypeScript SDK",
+          "Go and Rust only",
+          "Only a REST API, no SDK"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "4q12",
+        "question": "What should you check first if an MCP server doesn't appear after adding it?",
+        "options": [
+          "Check internet connectivity",
+          "Check JSON config syntax and restart the Claude client",
+          "Reinstall Claude Code",
+          "Upgrade Node.js"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "4q13",
+        "question": "What does the /schedule command do in Cowork?",
+        "options": [
+          "Schedules a meeting",
+          "Creates recurring automated tasks (e.g., daily report generation)",
+          "Schedules a software update",
+          "Sets a reminder notification"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "4q14",
+        "question": "Why might a Cowork VM fail to start?",
+        "options": [
+          "The user's internet is too slow",
+          "Insufficient disk space, app needs restart, or macOS virtualization is not enabled",
+          "The user is on an iPad",
+          "The plugin license expired"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "4q15",
+        "question": "What output formats can Cowork produce?",
+        "options": [
+          "Only plain text",
+          "Excel with formulas, PowerPoint, Word, PDFs, and images",
+          "Only PDF",
+          "Only code files"
+        ],
+        "correctAnswer": 1
+      }
+    ]
+  },
+  {
+    "day": 5,
+    "questions": [
+      {
+        "id": "5q1",
+        "question": "What is the top-level manifest file in a plugin?",
+        "options": [
+          "manifest.json",
+          "plugin.json",
+          "package.json",
+          "config.yaml"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "5q2",
+        "question": "Name 3 things a plugin can bundle.",
+        "options": [
+          "Images, videos, and audio",
+          "Skills, MCP servers, sub-agents, and Connector configurations",
+          "Only code files",
+          "Databases, APIs, and webhooks"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "5q3",
+        "question": "Where do private marketplaces come from?",
+        "options": [
+          "Anthropic creates them automatically",
+          "Enterprise admins create internal catalogs of vetted plugins",
+          "They are open-source community projects",
+          "Each user creates their own"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "5q4",
+        "question": "How do you list installed plugins in Claude Code?",
+        "options": [
+          "claude list",
+          "/plugins list",
+          "npm list",
+          "/show plugins"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "5q5",
+        "question": "What is the recommended way to avoid tool-name collisions between plugins?",
+        "options": [
+          "Install only one plugin at a time",
+          "Use namespaced tool names in plugin.json",
+          "Rename Claude Code",
+          "Use different Claude accounts"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "5q6",
+        "question": "Where are Claude Code session logs stored on macOS/Linux?",
+        "options": [
+          "/var/log/claude/",
+          "~/.claude/logs/session-*.jsonl",
+          "~/Documents/Claude/",
+          "/tmp/claude-logs/"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "5q7",
+        "question": "Which page hosts public incident reports for Anthropic services?",
+        "options": [
+          "anthropic.com/incidents",
+          "status.anthropic.com",
+          "support.claude.com/status",
+          "claude.ai/status"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "5q8",
+        "question": "Name 4 items every escalation packet should contain.",
+        "options": [
+          "User's full name, address, phone number, and SSN",
+          "Repro steps, timestamps, request IDs, and log excerpts",
+          "Screenshot, video recording, audio note, and drawing",
+          "Email thread, calendar invite, Slack link, and document"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "5q9",
+        "question": "Which log holds MCP server output by default?",
+        "options": [
+          "The Claude Code session log",
+          "Server stderr/stdout, captured by the host process",
+          "The browser console",
+          "A dedicated MCP log file"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "5q10",
+        "question": "What is the first triage step when a customer reports 'Claude is slow'?",
+        "options": [
+          "Ask the customer to upgrade their plan",
+          "Check status.anthropic.com for active incidents",
+          "Tell the customer to clear their cache",
+          "Restart the Claude service"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "5q11",
+        "question": "What security measures apply to public marketplace plugins?",
+        "options": [
+          "No security checks are performed",
+          "Code signing, allow-lists, and review processes (automated + manual)",
+          "Only a virus scan",
+          "Users must review source code themselves"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "5q12",
+        "question": "What are the six common support issue categories?",
+        "options": [
+          "Hardware, software, network, storage, display, audio",
+          "Authentication, network, rate limiting, model errors, plugin/skill issues, billing",
+          "Login, signup, payment, refund, cancel, upgrade",
+          "Windows, macOS, Linux, iOS, Android, web"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "5q13",
+        "question": "Can plugins work across both Claude Code and Cowork?",
+        "options": [
+          "No, plugins are always product-specific",
+          "Yes — the plugin.json manifest declares compatibility; some work in both",
+          "Only Enterprise plugins work across products",
+          "Only MCP-based plugins work across products"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "5q14",
+        "question": "What is the pass threshold for the final cumulative assessment?",
+        "options": [
+          "70%",
+          "75%",
+          "80%",
+          "90%"
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "5q15",
+        "question": "A user's API key works in curl but not in their script. What should you check first?",
+        "options": [
+          "The user's internet speed",
+          "Header name (x-api-key), anthropic-version header, model name string, and local proxy",
+          "The user's operating system version",
+          "Whether the API key has expired"
+        ],
+        "correctAnswer": 1
+      }
+    ]
+  }
+]

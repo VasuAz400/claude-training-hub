@@ -1,0 +1,37 @@
+[
+  {
+    "id": "mpwpc56tk6ob",
+    "name": "Test User",
+    "email": "test@deloitte.com",
+    "registeredAt": "2026-06-02T13:57:23.141Z",
+    "progress": {
+      "1": {
+        "topicsRead": [
+          "1A1"
+        ],
+        "quizAttempts": [],
+        "bestScore": null
+      },
+      "2": {
+        "topicsRead": [],
+        "quizAttempts": [],
+        "bestScore": null
+      },
+      "3": {
+        "topicsRead": [],
+        "quizAttempts": [],
+        "bestScore": null
+      },
+      "4": {
+        "topicsRead": [],
+        "quizAttempts": [],
+        "bestScore": null
+      },
+      "5": {
+        "topicsRead": [],
+        "quizAttempts": [],
+        "bestScore": null
+      }
+    }
+  }
+]
