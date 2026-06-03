@@ -184,7 +184,24 @@ app.post('/api/admin/logout', (req, res) => {
   res.json({ message: 'Logged out.' });
 });
 
-// --- Learner Routes (unchanged) ---
+// Middleware: verify learner session token
+function requireUser(req, res, next) {
+  const authHeader = req.headers.authorization;
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return res.status(401).json({ error: 'Authentication required.' });
+  }
+  const token = authHeader.slice(7);
+  const users = readJSON(USERS_FILE);
+  const user = users.find(u => u.sessionToken === token);
+  if (!user) {
+    return res.status(401).json({ error: 'Invalid session. Please log in again.' });
+  }
+  req.authenticatedUser = user;
+  req.users = users;
+  next();
+}
+
+// --- Learner Routes ---
 
 app.post('/api/register', (req, res) => {
   const { name, email } = req.body;
@@ -200,6 +217,8 @@ app.post('/api/register', (req, res) => {
   let user = users.find(u => u.email === normalizedEmail);
 
   if (user) {
+    user.sessionToken = generateToken();
+    writeJSON(USERS_FILE, users);
     return res.json(user);
   }
 
@@ -207,6 +226,7 @@ app.post('/api/register', (req, res) => {
     id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
     name: name.trim(),
     email: normalizedEmail,
+    sessionToken: generateToken(),
     registeredAt: new Date().toISOString(),
     progress: {
       1: { topicsRead: [], quizAttempts: [], bestScore: null },
@@ -226,19 +246,41 @@ app.get('/api/user/:id', (req, res) => {
   const users = readJSON(USERS_FILE);
   const user = users.find(u => u.id === req.params.id);
   if (!user) return res.status(404).json({ error: 'User not found.' });
-  res.json(user);
+  const { sessionToken, ...safeUser } = user;
+  res.json(safeUser);
 });
 
-app.post('/api/progress/:userId/topic', (req, res) => {
-  const { day, topicId } = req.body;
-  const users = readJSON(USERS_FILE);
-  const user = users.find(u => u.id === req.params.userId);
-  if (!user) return res.status(404).json({ error: 'User not found.' });
+app.post('/api/progress/:userId/topic', requireUser, (req, res) => {
+  if (req.authenticatedUser.id !== req.params.userId) {
+    return res.status(403).json({ error: 'You can only update your own progress.' });
+  }
 
+  const { day, topicId } = req.body;
+
+  const dayNum = parseInt(day);
+  if (!Number.isInteger(dayNum) || dayNum < 1 || dayNum > 5) {
+    return res.status(400).json({ error: 'Invalid day.' });
+  }
+
+  if (typeof topicId !== 'string' || topicId.length === 0 || topicId.length > 10) {
+    return res.status(400).json({ error: 'Invalid topicId.' });
+  }
+
+  const content = readJSON(CONTENT_FILE);
+  const dayContent = content.find(d => d.day === dayNum);
+  if (!dayContent) {
+    return res.status(400).json({ error: 'Invalid day.' });
+  }
+  const validTopicIds = dayContent.blocks.flatMap(b => b.topics.map(t => t.id));
+  if (!validTopicIds.includes(topicId)) {
+    return res.status(400).json({ error: 'Invalid topicId for this day.' });
+  }
+
+  const user = req.authenticatedUser;
   if (!user.progress[day].topicsRead.includes(topicId)) {
     user.progress[day].topicsRead.push(topicId);
   }
-  writeJSON(USERS_FILE, users);
+  writeJSON(USERS_FILE, req.users);
   res.json(user.progress[day]);
 });
 
@@ -260,13 +302,25 @@ app.get('/api/quiz/:day', (req, res) => {
   res.json({ day, questions });
 });
 
-app.post('/api/quiz/:day/submit', (req, res) => {
+app.post('/api/quiz/:day/submit', requireUser, (req, res) => {
   const { userId, answers } = req.body;
+
+  if (req.authenticatedUser.id !== userId) {
+    return res.status(403).json({ error: 'You can only submit quizzes for your own account.' });
+  }
+
   const day = parseInt(req.params.day);
+  if (!Number.isInteger(day) || day < 1 || day > 5) {
+    return res.status(400).json({ error: 'Invalid day.' });
+  }
 
   const quizzes = readJSON(QUIZZES_FILE);
   const dayQuiz = quizzes.find(q => q.day === day);
   if (!dayQuiz) return res.status(404).json({ error: 'Quiz not found.' });
+
+  if (!Array.isArray(answers) || answers.length !== dayQuiz.questions.length) {
+    return res.status(400).json({ error: 'Invalid answers.' });
+  }
 
   let correct = 0;
   const results = dayQuiz.questions.map((q, i) => {
@@ -282,9 +336,7 @@ app.post('/api/quiz/:day/submit', (req, res) => {
 
   const score = Math.round((correct / dayQuiz.questions.length) * 100);
 
-  const users = readJSON(USERS_FILE);
-  const user = users.find(u => u.id === userId);
-  if (!user) return res.status(404).json({ error: 'User not found.' });
+  const user = req.authenticatedUser;
 
   const attempt = {
     attemptNumber: user.progress[day].quizAttempts.length + 1,
@@ -299,7 +351,7 @@ app.post('/api/quiz/:day/submit', (req, res) => {
     user.progress[day].bestScore = score;
   }
 
-  writeJSON(USERS_FILE, users);
+  writeJSON(USERS_FILE, req.users);
   res.json({ score, correct, total: dayQuiz.questions.length, results, attempt });
 });
 
@@ -329,7 +381,8 @@ app.get('/api/admin/user/:id', requireAdmin, (req, res) => {
   const users = readJSON(USERS_FILE);
   const user = users.find(u => u.id === req.params.id);
   if (!user) return res.status(404).json({ error: 'User not found.' });
-  res.json(user);
+  const { sessionToken, ...safeUser } = user;
+  res.json(safeUser);
 });
 
 // SPA fallback
