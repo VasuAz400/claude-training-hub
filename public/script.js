@@ -1,3 +1,9 @@
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
 const app = {
   user: null,
   currentDay: null,
@@ -173,7 +179,7 @@ const app = {
 
     document.getElementById('app').innerHTML = `
       <div class="dashboard-greeting">
-        <h2>Welcome, ${this.user.name}</h2>
+        <h2>Welcome, ${escapeHtml(this.user.name)}</h2>
         <p>Track your progress across the 5-day Claude Support Training program.</p>
       </div>
       <div class="card" style="margin-bottom:28px;">
@@ -722,8 +728,8 @@ const app = {
         }).join('');
         return `
           <tr>
-            <td class="learner-name">${u.name}</td>
-            <td>${u.email}</td>
+            <td class="learner-name">${escapeHtml(u.name)}</td>
+            <td>${escapeHtml(u.email)}</td>
             ${dayCells}
           </tr>
         `;
