@@ -8,8 +8,8 @@
     "dev": "node --watch server.js"
   },
   "dependencies": {
-    "express": "^4.21.0",
-    "nodemailer": "^8.0.10",
+    "express": "^4.22.3",
+    "nodemailer": "^10.0.13",
     "pptxgenjs": "^4.0.1"
   }
 }
